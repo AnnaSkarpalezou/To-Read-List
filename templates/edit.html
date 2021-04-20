@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Update ~ fix the details of a book</h2>
+<p>Edit a record in the MongoDB database collection.</p>
+<form method="POST" action="{{ url_for('edit_post', mongoid=mongoid) }}">
+  <p>
+    Title:
+    <input type="text" id="ftitle" name="ftitle" value="{{doc.name}}" /><br />
+  </p>
+  <p>
+    Author:
+    <textarea id="fauthor" name="fauthor">{{doc.author}}</textarea>
+  </p>
+  <p>
+    Genre:
+    <textarea id="fauthor" name="fgenre">{{doc.genre}}</textarea>
+  </p>
+    <p>
+    Description:
+    <textarea id="fauthor" name="fdesc">{{doc.desc}}</textarea>
+  </p>
+  <p>
+    <a href="{{ url_for('read')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Save" />
+  </p>
+</form>
+{% endblock %}

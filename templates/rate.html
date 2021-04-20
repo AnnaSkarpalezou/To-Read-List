@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Update ~ Rate a book you have now read! </h2>
+<p>Rate a record in the MongoDB database collection.</p>
+<form method="POST" action="{{ url_for('rate', mongoid=mongoid) }}">
+  <p>
+    Title:
+    <input type="text" id="ftitle" name="ftitle" value="{{doc.title}}" /><br />
+  </p>
+  <p>
+    Author:
+    <textarea id="fauthor" name="fauthor">{{doc.author}}</textarea>
+  </p>
+  <p>
+    Genre:
+    <textarea id="fauthor" name="fgenre">{{doc.genre}}</textarea>
+  </p>
+    <p>
+    Description:
+    <textarea id="fauthor" name="fdesc">{{doc.desc}}</textarea>
+  </p>
+  <p>
+    Rating:
+    <textarea id="frating" name="frating">{{doc.rating}}</textarea>
+    /5
+  </p>
+  <p>
+    <a href="{{ url_for('read')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Save" />
+  </p>
+</form>
+{% endblock %}

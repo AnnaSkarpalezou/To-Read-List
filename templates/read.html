@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h2>Read ~ All the books in my to read list!</h2>
+<p>This page shows All the books in my to-read list, aka information pulled from the main MongoDB database collection.
+        
+    {% for doc in docs %}
+    <div>
+        <hr class="solid">
+        <p> 
+            Title: {{doc.title}}
+        </p>
+        <p> 
+            Written by {{doc.author}}, Genre: {{doc.genre}}
+        </p>
+        <p class="post">
+            {{ doc.desc }}, added to the list at {{ doc.created_at.strftime("%H:%M on %d %B %Y")}}
+            </br>
+            <a href="{{ url_for('edit',mongoid=doc._id)}}">Edit</a> | <a href="{{ url_for('delete',mongoid=doc._id)}}">Delete</a>
+            </br>
+        </p>
+
+    </div>
+    {%endfor%}
+</p>
+{% endblock %}

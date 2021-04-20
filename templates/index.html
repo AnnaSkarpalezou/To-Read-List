@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h2>Welcome!</h2>
+<p>Welcome to my simple Flask app. This is the home page of my to-read book list. Here are a few links to the main pages.
+    <ul>
+        <li><a href="{{ url_for('read')}}">a page that displays information pulled from the main MongoDB database collection. It displays all of the books in my to-read list!</a></li>
+        <li><a href="{{ url_for('create')}}">a page with a form you can submit to create a new record in the main MongoDB collection, adding a new book to my to read list!</a></li>
+        <li><a href="{{ url_for('archive')}}">a page that displays information pulled from the archive MongoDB database collection. It displays all of the books that have been removed from my to-read list because I hopefully read them!</a></li>
+    </ul>
+</p>
+{% endblock %}

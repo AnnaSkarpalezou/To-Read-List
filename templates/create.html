@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Create ~ Adding a new book to my list</h2>
+<p>Add a new book to my to-read list by adding a new record in the main MongoDB database collection.</p>
+<form method="POST" action="{{ url_for('create_post') }}">
+  <p>Title: <input type="text" id="ftitle" name="ftitle" /><br /></p>
+  <p>
+    Author:
+    <textarea type="text" id="fauthor" name="fauthor"></textarea>
+  </p>
+  <p>
+    Genre:
+    <textarea type="text" id="fgenre" name="fgenre"></textarea>
+  </p>
+   <p>
+    Description:
+    <textarea type="text" id="fdesc" name="fdesc"></textarea>
+  </p>
+  <p>
+    <a href="{{ url_for('read')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Post" />
+  </p>
+</form>
+{% endblock %}
